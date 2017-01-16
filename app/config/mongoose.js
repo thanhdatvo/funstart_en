@@ -4,7 +4,10 @@
 var config = require('./config.js'),
     mongoose = require('mongoose');
 module.exports = function(callback) {
-    var db = mongoose.connect(config.db);
+    // REOPEN LATE
+    // var db = mongoose.connect(config.db);
+
+    var db = mongoose.connect('mongodb://dat:1@localhost:27017/auth');
     //mongoose.Promise = global.Promise;
     var dbc = mongoose.connection;
     dbc.on('error', console.error.bind(console, 'connection error:'));

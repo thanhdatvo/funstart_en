@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { RestService } from '../../services/rest.service';
+import { AuthService } from '../../services/auth.service';
 import { ConstantService } from '../../services/constant.service';
 
 import { Game } from '../../classes/game';
@@ -14,18 +15,23 @@ import { Topic } from '../../classes/topic';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router, private rest: RestService) { }
+  constructor(private router: Router, private rest: RestService, private auth: AuthService, private route:ActivatedRoute) { 
+   
+  }
 
   private gamesCollections: any[];
 
   ngOnInit() {
+     this.route.queryParams.subscribe(queryParam=>{
+       console.log(JSON.stringify(queryParam));
+    });
     this.gamesCollections = [];
 
     let _this = this;
     ConstantService.TOPICS.forEach(function (topic) { // loop through topics
-      _this.rest
-        .getGames({ paging: 6, topic: topic._id })
-        .subscribe((res: any) => _this.renderGames(res.data, topic)); // take game from database
+      // _this.rest
+      //   .getGames({ paging: 6, topic: topic._id })
+      //   .subscribe((res: any) => _this.renderGames(res.data, topic)); // take game from database
     });
   }
   renderGames(games: any, topic: Topic) {

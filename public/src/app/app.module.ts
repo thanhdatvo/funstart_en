@@ -20,7 +20,9 @@ import { SidebarComponent } from './shared-components/sidebar/sidebar.component'
 
 import { GameCardComponent} from './child-components/game-card/game-card.component';
 
+import { AUTH_PROVIDER } from './services/auth.service';
 import { REST_PROVIDER } from './services/rest.service';
+import { USER_PROVIDER } from './services/user.service';
 import { CONSTANT_SERVICE } from './services/constant.service';
 import { GameCollectionComponent } from './child-components/game-collection/game-collection.component';
 import { GameCardDetailComponent } from './child-components/game-card-detail/game-card-detail.component';
@@ -63,6 +65,8 @@ import { VideoPlayerComponent } from './child-components/video-player/video-play
   ],
   providers: [
     REST_PROVIDER,
+    AUTH_PROVIDER,
+    USER_PROVIDER,
     CONSTANT_SERVICE,
     { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: APP_BASE_HREF, useValue: '/' }

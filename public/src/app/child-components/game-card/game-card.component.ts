@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Game } from '../../classes/game';
-import { VideoPlayer } from '../video-player'; 
-
 @Component({
   selector: 'app-game-card',
   templateUrl: './game-card.component.html',

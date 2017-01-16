@@ -32,12 +32,13 @@ exports.authLogout = function(req,res){
     res.redirect('/');
 };
 exports.authSignin = function(req,res){
-    var tmp = req.user.trackData;
     req.user.trackData = {};
+    var tmp = req.user.trackData;
     tmp.hourlySession = 0;
     tmp.dailySession = 0;
     req.user.trackData = tmp;
     req.user.save();
+    console.log(JSON.stringify(req.user));
     return res.status(200).send({user: req.user});
 };
 exports.authSignup = function(req,res){

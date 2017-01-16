@@ -9,7 +9,7 @@ module.exports = function() {
         User.findOne({
             _id: id
         }, '-password -salt', function(err, user) {
-            if(user.status != 1){
+            if(user.status && user.status != 1){
                 user.status = 1;
                 user.active = Date.now();
                 user.save();
@@ -25,5 +25,6 @@ module.exports = function() {
     });
     require('./strategies/bearer')();
     require('./strategies/facebook')();
+    require('./strategies/twitter')();
     require('./strategies/local')();
 };

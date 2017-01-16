@@ -34,7 +34,8 @@ module.exports = function () {
     app.use(session({
         saveUninitialized: true,
         resave: true,
-        secret: config.sessionSecret
+        secret: config.sessionSecret,
+        cookie : { secure: false }
     }));
 
     app.use(express.static('./public'));

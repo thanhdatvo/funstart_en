@@ -18,6 +18,12 @@ module.exports = {
         callbackURL: '/oauth/facebook/callback',
         profileFields: ['id', 'displayName','email','gender']
     },
+    twitter: {
+        consumerKey: 'M0bLQIqMjpD3YdwxSMFqmJjAQ',
+        consumerSecret: '0mbGODRgKV2waKwjCan1B19ZOF5bhA1KHzzfYQgwszTkrZer62',
+        callbackURL: '/oauth/twitter/callback',
+        profileFields: ['id', 'displayName','email','gender']
+    },
     email: {
         username: "funstart.net",
         password: "brandnew123",
